@@ -20,6 +20,10 @@ const JobList = () => {
       );
   }, []);
 
+  if (!data || !Array.isArray(data)) {
+    return <p>Loading...</p>; // display a loading message while data is being fetched
+  }
+
   return (
     <ul className="py-16 px-4 sm:px-[10%] bg-[#effafa] min-h-screen flex flex-col gap-10">
       {data.map((job) => (
@@ -32,9 +36,9 @@ const JobList = () => {
               <img src={job.logo} alt="company-logo" />
             </div>
 
-            <div className="flex flex-col">
-              <h2 className="text-lg font-bold">{job.position}</h2>
+            <div className="flex flex-col justify-between">
               <p className="text-sm text-gray-600">{job.company}</p>
+              <h2 className="text-lg font-bold">{job.position}</h2>
             </div>
           </div>
 
