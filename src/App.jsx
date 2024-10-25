@@ -1,9 +1,9 @@
-import { Button } from "./components/ui/button";
+import Header from "./component/Header.jsx";
 
 function App() {
   return (
     <div>
-      <Button>Click me</Button>
+      <Header></Header>
     </div>
   );
 }
