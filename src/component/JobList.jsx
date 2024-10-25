@@ -21,15 +21,24 @@ const JobList = () => {
   }, []);
 
   return (
-    <ul className="py-16 px-4 sm:px-[10%] bg-[#effafa] min-h-screen flex flex-col gap-8">
+    <ul className="py-16 px-4 sm:px-[10%] bg-[#effafa] min-h-screen flex flex-col gap-10">
       {data.map((job) => (
-        <li key={job.id} className="bg-[#fff] flex flex-col sm:flex-row justify-between py-8 px-12">
-          <div>
-            <h2 className="text-lg font-bold">{job.position}</h2>
-            <p className="text-sm text-gray-600">{job.company}</p>
+        <li
+          key={job.id}
+          className="bg-[#fff] flex flex-col sm:flex-row justify-between py-4 px-4 sm:py-8 sm:px-12 "
+        >
+          <div className="flex flex-col sm:flex-row relative gap-6">
+            <div className="absolute sm:relative bottom-[100%] sm:bottom-0 size-[44px] sm:size-[88px]">
+              <img src={job.logo} alt="company-logo" />
+            </div>
+
+            <div className="flex flex-col">
+              <h2 className="text-lg font-bold">{job.position}</h2>
+              <p className="text-sm text-gray-600">{job.company}</p>
+            </div>
           </div>
 
-          <hr className="inline-block sm:hidden"/>
+          <hr className="inline-block sm:hidden" />
 
           <div>
             <p className="text-sm text-gray-500">{job.location}</p>
