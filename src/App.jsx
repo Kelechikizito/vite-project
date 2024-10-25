@@ -1,9 +1,11 @@
 import Header from "./component/Header.jsx";
+import JobList from "./component/JobList.jsx";
 
 function App() {
   return (
-    <div>
-      <Header></Header>
+    <div className='text-center bg-[#effafa] h-fit'>
+      <Header />
+      <JobList />
     </div>
   );
 }
