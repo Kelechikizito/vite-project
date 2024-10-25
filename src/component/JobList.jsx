@@ -54,7 +54,7 @@ const JobList = () => {
                 </div>
               </div>
 
-              <h2 className="text-lg font-bold">{job.position}</h2>
+              <h2 className="text-lg font-bold hover:text-[#5ba4a4] hover:cursor-pointer">{job.position}</h2>
 
               <div className="flex gap-2 text-[#808080]">
                 <p>{job.postedAt}</p>
@@ -69,15 +69,15 @@ const JobList = () => {
           <hr className="inline-block sm:hidden border-[1px]" />
 
           <div className="flex flex-wrap items-center justify-start sm:justify-end gap-4 text-[#5ba4a4]">
-            <p className="text-sm font-bold px-2 py-0.5 rounded hover:cursor-pointer bg-[#effafa]">{job.role}</p>
-            <p className="text-sm font-bold px-2 py-0.5 rounded hover:cursor-pointer bg-[#effafa]">{job.level}</p>
+            <p className="text-sm font-bold px-2 py-0.5 rounded hover:cursor-pointer hover:text-white hover:bg-[#5ba4a4] bg-[#effafa]">{job.role}</p>
+            <p className="text-sm font-bold px-2 py-0.5 rounded hover:cursor-pointer hover:text-white hover:bg-[#5ba4a4] bg-[#effafa]">{job.level}</p>
             {job.languages.map((language) => (
-              <p className="text-sm font-bold px-2 py-0.5 rounded hover:cursor-pointer bg-[#effafa]" key="">
+              <p className="text-sm font-bold px-2 py-0.5 rounded hover:cursor-pointer hover:text-white hover:bg-[#5ba4a4] bg-[#effafa]" key="">
                 {language}
               </p>
             ))}
             {job.tools.map((tool) => (
-              <p className="text-sm font-bold px-2 py-0.5 rounded hover:cursor-pointer bg-[#effafa]" key="">
+              <p className="text-sm font-bold px-2 py-0.5 rounded hover:cursor-pointer hover:text-white hover:bg-[#5ba4a4] bg-[#effafa]" key="">
                 {tool}
               </p>
             ))}
