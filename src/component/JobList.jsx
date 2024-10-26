@@ -1,7 +1,8 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 
 const JobList = () => {
   const [data, setData] = useState(null);
+  const ref = useRef(null);
 
   useEffect(() => {
     fetch("/data.json")
@@ -24,8 +25,12 @@ const JobList = () => {
     return <p>Loading...</p>; // display a loading message while data is being fetched
   }
 
+  const ulClick = () => {
+    console.log(ref.current.children)
+  }
+
   return (
-    <ul className="py-16 px-4 sm:px-[10%] bg-[#effafa] min-h-screen flex flex-col gap-10">
+    <ul className="py-16 px-4 sm:px-[10%] bg-[#effafa] min-h-screen flex flex-col gap-10" onClick={ulClick} ref={ref}>
       {data.map((job) => (
         <li
           key={job.id}
