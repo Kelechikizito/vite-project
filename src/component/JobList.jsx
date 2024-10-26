@@ -26,7 +26,8 @@ const JobList = () => {
   }
 
   const tagClickHandler = (event) => {
-    console.log(event.target.textContent)
+    const clickedTag = event.target.textContent;
+    console.log(clickedTag)
   }
 
   return (
