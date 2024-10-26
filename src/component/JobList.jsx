@@ -25,12 +25,12 @@ const JobList = () => {
     return <p>Loading...</p>; // display a loading message while data is being fetched
   }
 
-  const ulClick = () => {
-    console.log(ref.current.children)
+  const tagClickHandler = () => {
+    console.log(ref.current.textContent)
   }
 
   return (
-    <ul className="py-16 px-4 sm:px-[10%] bg-[#effafa] min-h-screen flex flex-col gap-10" onClick={ulClick} ref={ref}>
+    <ul className="py-16 px-4 sm:px-[10%] bg-[#effafa] min-h-screen flex flex-col gap-10">
       {data.map((job) => (
         <li
           key={job.id}
@@ -74,15 +74,15 @@ const JobList = () => {
           <hr className="inline-block sm:hidden border-[1px]" />
 
           <div className="flex flex-wrap items-center justify-start sm:justify-end gap-4 text-[#5ba4a4]">
-            <p className="text-sm font-bold px-2 py-0.5 rounded hover:cursor-pointer hover:text-white hover:bg-[#5ba4a4] bg-[#effafa]">{job.role}</p>
-            <p className="text-sm font-bold px-2 py-0.5 rounded hover:cursor-pointer hover:text-white hover:bg-[#5ba4a4] bg-[#effafa]">{job.level}</p>
+            <p className="text-sm font-bold px-2 py-0.5 rounded hover:cursor-pointer hover:text-white hover:bg-[#5ba4a4] bg-[#effafa]" onClick={tagClickHandler} ref={ref}>{job.role}</p>
+            <p className="text-sm font-bold px-2 py-0.5 rounded hover:cursor-pointer hover:text-white hover:bg-[#5ba4a4] bg-[#effafa]" onClick={tagClickHandler} ref={ref}>{job.level}</p>
             {job.languages.map((language) => (
-              <p className="text-sm font-bold px-2 py-0.5 rounded hover:cursor-pointer hover:text-white hover:bg-[#5ba4a4] bg-[#effafa]" key="">
+              <p className="text-sm font-bold px-2 py-0.5 rounded hover:cursor-pointer hover:text-white hover:bg-[#5ba4a4] bg-[#effafa]" key={language.index} onClick={tagClickHandler} ref={ref}>
                 {language}
               </p>
             ))}
             {job.tools.map((tool) => (
-              <p className="text-sm font-bold px-2 py-0.5 rounded hover:cursor-pointer hover:text-white hover:bg-[#5ba4a4] bg-[#effafa]" key="">
+              <p className="text-sm font-bold px-2 py-0.5 rounded hover:cursor-pointer hover:text-white hover:bg-[#5ba4a4] bg-[#effafa]" key={tool.index} onClick={tagClickHandler} ref={ref}>
                 {tool}
               </p>
             ))}
