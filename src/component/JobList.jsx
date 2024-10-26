@@ -25,8 +25,8 @@ const JobList = () => {
     return <p>Loading...</p>; // display a loading message while data is being fetched
   }
 
-  const tagClickHandler = () => {
-    console.log(ref.current.textContent)
+  const tagClickHandler = (event) => {
+    console.log(event.target.textContent)
   }
 
   return (
