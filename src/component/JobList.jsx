@@ -32,16 +32,23 @@ const JobList = () => {
 
   const Skills = ({ tag }) => (
     <div className="tag flex">
-      <p className="bg-[#effafa] rounded-md p-0.5 px-2 mr-0 m-2 rounded-r-none">{tag}</p>
-      <button className="rounded-md p-0.5 px-2 ml-0 m-2 rounded-l-none bg-[#5ba4a4] text-white hover:bg-black" >X</button>
+      <p className="bg-[#effafa] rounded-md p-0.5 px-2 mr-0 m-2 rounded-r-none">
+        {tag}
+      </p>
+      <button className="rounded-md p-0.5 px-2 ml-0 m-2 rounded-l-none bg-[#5ba4a4] text-white hover:bg-black"
+      onClick={() => console.log(tag)}
+      >
+        X
+      </button>
     </div>
   );
 
+
   return (
-    <div className="relative">
+    <div className="sm:relative">
       {/* Render Skills tags */}
       {clickedTags.length ? (
-        <div className="skills-tags flex justify-between absolute top-[-2rem] sm:left-[10%] sm:right-[10%] left-4 right-4  bg-white rounded-lg shadow-2xl py-2 px-4 sm:px-12 text-[#5ba4a4]">
+        <div className="skills-tags flex justify-between relative sm:absolute mr-8 sm:mr-0 top-[-2rem] sm:left-[10%] sm:right-[10%] left-4 right-4 bg-white rounded-lg shadow-2xl py-2 px-4 sm:px-12 text-[#5ba4a4]">
           <div className="flex flex-wrap">
             {clickedTags.map((tag, index) => (
               <Skills key={index} tag={tag} />
