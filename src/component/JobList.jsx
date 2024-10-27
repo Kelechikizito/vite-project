@@ -38,22 +38,18 @@ const JobList = () => {
 
   return (
     <div className="relative">
-      {clickedTags.map((tag, index) => (
-        <div
-          key={index} // Move the key prop here
-          className="skills-tags flex justify-between absolute top-[-2rem] sm:left-[10%] sm:right-[10%] left-4 right-4 bg-white rounded-lg shadow-2xl py-2 px-4 sm:px-12"
-        >
-          <div className="flex flex-wrap">
-            <Skills tag={tag} key={index}/>
-          </div>
-
-          <div className="flex justify-center items-center">
-            <p className="underline underline-offset-1 text-[#5ba4a4] hover:cursor-pointer">
-              Clear
-            </p>
-          </div>
+      {/* Render Skills tags */}
+      {clickedTags?<div className="skills-tags flex justify-between absolute top-[-2rem] sm:left-[10%] sm:right-[10%] left-4 right-4  bg-white rounded-lg shadow-2xl py-2 px-4 sm:px-12 ">
+        <div className="flex flex-wrap">
+          {clickedTags.map((tag, index) => (
+            <Skills key={index} tag={tag} />
+          ))}
         </div>
-      ))}
+
+        <div className="flex justify-center items-center">
+          <p className="underline underline-offset-1 text-[#5ba4a4] hover:cursor-pointer">Clear</p>
+        </div>
+      </div>:null}
 
       <ul className="py-16 px-4 sm:px-[10%] bg-[#effafa] min-h-screen flex flex-col gap-10">
         {data.map((job) => (
