@@ -27,9 +27,14 @@ const JobList = () => {
   }
 
   const handleClear = () => {
-    setShowSkillsTags(false); // This hides the parent <div>
     setClickedTags([]);
-    setShowSkillsTags(true); // This hides the parent <div>      // Optionally clear clickedTags array as well
+    setShowSkillsTags(false); // Hide when tags are cleared
+  };
+
+  const handleTagClear = (tagToRemove) => {
+    setClickedTags((prevTags) =>
+      prevTags.filter((tag) => tag !== tagToRemove)
+    );
   };
 
   const tagClickHandler = (event) => {
@@ -44,7 +49,7 @@ const JobList = () => {
       </p>
       <button
         className="rounded-md p-0.5 px-2 ml-0 m-2 rounded-l-none bg-[#5ba4a4] text-white hover:bg-black"
-        onClick={() => console.log(tag)}
+        onClick={() => handleTagClear(tag)}
       >
         X
       </button>
