@@ -31,25 +31,30 @@ const JobList = () => {
   };
 
   const Skills = ({ tag }) => (
-    <div className="tag rounded-md p-1 px-2 m-2">
-      <button>{tag}</button>
+    <div className="tag flex">
+      <p className="bg-[#effafa] rounded-md p-0.5 px-2 mr-0 m-2 rounded-r-none">{tag}</p>
+      <button className="rounded-md p-0.5 px-2 ml-0 m-2 rounded-l-none bg-[#5ba4a4] text-white hover:bg-black" >X</button>
     </div>
   );
 
   return (
     <div className="relative">
       {/* Render Skills tags */}
-      {clickedTags?<div className="skills-tags flex justify-between absolute top-[-2rem] sm:left-[10%] sm:right-[10%] left-4 right-4  bg-white rounded-lg shadow-2xl py-2 px-4 sm:px-12 ">
-        <div className="flex flex-wrap">
-          {clickedTags.map((tag, index) => (
-            <Skills key={index} tag={tag} />
-          ))}
-        </div>
+      {clickedTags.length ? (
+        <div className="skills-tags flex justify-between absolute top-[-2rem] sm:left-[10%] sm:right-[10%] left-4 right-4  bg-white rounded-lg shadow-2xl py-2 px-4 sm:px-12 text-[#5ba4a4]">
+          <div className="flex flex-wrap">
+            {clickedTags.map((tag, index) => (
+              <Skills key={index} tag={tag} />
+            ))}
+          </div>
 
-        <div className="flex justify-center items-center">
-          <p className="underline underline-offset-1 text-[#5ba4a4] hover:cursor-pointer">Clear</p>
+          <div className="flex justify-center items-center">
+            <p className="underline underline-offset-1 text-[#5ba4a4] hover:cursor-pointer">
+              Clear
+            </p>
+          </div>
         </div>
-      </div>:null}
+      ) : null}
 
       <ul className="py-16 px-4 sm:px-[10%] bg-[#effafa] min-h-screen flex flex-col gap-10">
         {data.map((job) => (
