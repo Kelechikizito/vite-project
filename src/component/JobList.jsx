@@ -44,7 +44,7 @@ const JobList = () => {
           className="skills-tags flex justify-between absolute top-[-2rem] sm:left-[10%] sm:right-[10%] left-4 right-4 bg-white rounded-lg shadow-2xl py-2 px-4 sm:px-12"
         >
           <div className="flex flex-wrap">
-            <Skills tag={tag} key={index++}/>
+            <Skills tag={tag} key={index}/>
           </div>
 
           <div className="flex justify-center items-center">
