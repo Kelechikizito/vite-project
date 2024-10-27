@@ -5,12 +5,6 @@ const JobList = () => {
   const [clickedTags, setClickedTags] = useState([]);
   const [showSkillsTags, setShowSkillsTags] = useState(true);
 
-  const handleClear = () => {
-    setShowSkillsTags(false); // This hides the parent <div>
-    setClickedTags([]); 
-    setShowSkillsTags(true); // This hides the parent <div>      // Optionally clear clickedTags array as well
-  };
-
   useEffect(() => {
     fetch("/data.json")
       .then((response) => {
@@ -32,6 +26,12 @@ const JobList = () => {
     return <p>Loading...</p>;
   }
 
+  const handleClear = () => {
+    setShowSkillsTags(false); // This hides the parent <div>
+    setClickedTags([]);
+    setShowSkillsTags(true); // This hides the parent <div>      // Optionally clear clickedTags array as well
+  };
+
   const tagClickHandler = (event) => {
     const clickedTag = event.target.textContent;
     setClickedTags((prevTags) => [...new Set([...prevTags, clickedTag])]);
@@ -42,14 +42,14 @@ const JobList = () => {
       <p className="bg-[#effafa] rounded-md p-0.5 px-2 mr-0 m-2 rounded-r-none">
         {tag}
       </p>
-      <button className="rounded-md p-0.5 px-2 ml-0 m-2 rounded-l-none bg-[#5ba4a4] text-white hover:bg-black"
-      onClick={() => console.log(tag)}
+      <button
+        className="rounded-md p-0.5 px-2 ml-0 m-2 rounded-l-none bg-[#5ba4a4] text-white hover:bg-black"
+        onClick={() => console.log(tag)}
       >
         X
       </button>
     </div>
   );
-
 
   return (
     <div className="sm:relative">
@@ -63,7 +63,10 @@ const JobList = () => {
           </div>
 
           <div className="flex justify-center items-center">
-            <p className="underline underline-offset-1 text-[#5ba4a4] hover:cursor-pointer" onClick={handleClear}>
+            <p
+              className="underline underline-offset-1 text-[#5ba4a4] hover:cursor-pointer"
+              onClick={handleClear}
+            >
               Clear
             </p>
           </div>
