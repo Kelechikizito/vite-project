@@ -3,6 +3,13 @@ import { useState, useEffect } from "react";
 const JobList = () => {
   const [data, setData] = useState(null);
   const [clickedTags, setClickedTags] = useState([]);
+  const [showSkillsTags, setShowSkillsTags] = useState(true);
+
+  const handleClear = () => {
+    setShowSkillsTags(false); // This hides the parent <div>
+    setClickedTags([]); 
+    setShowSkillsTags(true); // This hides the parent <div>      // Optionally clear clickedTags array as well
+  };
 
   useEffect(() => {
     fetch("/data.json")
@@ -47,7 +54,7 @@ const JobList = () => {
   return (
     <div className="sm:relative">
       {/* Render Skills tags */}
-      {clickedTags.length ? (
+      {showSkillsTags && clickedTags.length > 0 ? (
         <div className="skills-tags flex justify-between relative sm:absolute mr-8 sm:mr-0 top-[-2rem] sm:left-[10%] sm:right-[10%] left-4 right-4 bg-white rounded-lg shadow-2xl py-2 px-4 sm:px-12 text-[#5ba4a4]">
           <div className="flex flex-wrap">
             {clickedTags.map((tag, index) => (
@@ -56,7 +63,7 @@ const JobList = () => {
           </div>
 
           <div className="flex justify-center items-center">
-            <p className="underline underline-offset-1 text-[#5ba4a4] hover:cursor-pointer">
+            <p className="underline underline-offset-1 text-[#5ba4a4] hover:cursor-pointer" onClick={handleClear}>
               Clear
             </p>
           </div>
