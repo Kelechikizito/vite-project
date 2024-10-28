@@ -28,8 +28,8 @@ const JobList = () => {
 
   const handleClear = () => {
     setClickedTags([]);
-    setShowSkillsTags(false); // Hide when tags are cleared
-    setShowSkillsTags(true); // Hide when tags are cleared
+    setShowSkillsTags(false); 
+    setShowSkillsTags(true);
   };
 
   const handleTagClear = (tagToRemove) => {
@@ -58,6 +58,16 @@ const JobList = () => {
     </div>
   );
 
+  // Filter the jobs based on clickedTags
+  const filteredJobs = clickedTags.length > 0
+    ? data.filter(job => {
+        // Combine all tags of a job into a single array
+        const jobTags = [job.role, job.level, ...job.languages, ...job.tools];
+        // Check if all clickedTags are included in jobTags
+        return clickedTags.every(tag => jobTags.includes(tag));
+      })
+    : data; // If no tags are selected, show all jobs
+
   return (
     <div className="sm:relative">
       {/* Render Skills tags */}
@@ -81,7 +91,7 @@ const JobList = () => {
       ) : null}
 
       <ul className="py-16 px-4 sm:px-[10%] bg-[#effafa] min-h-screen flex flex-col gap-10">
-        {data.map((job) => (
+        {filteredJobs.map((job) => (
           <li
             key={job.id}
             style={
