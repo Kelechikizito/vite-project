@@ -29,6 +29,7 @@ const JobList = () => {
   const handleClear = () => {
     setClickedTags([]);
     setShowSkillsTags(false); // Hide when tags are cleared
+    setShowSkillsTags(true); // Hide when tags are cleared
   };
 
   const handleTagClear = (tagToRemove) => {
