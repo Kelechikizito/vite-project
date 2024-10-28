@@ -40,6 +40,7 @@ const JobList = () => {
 
   const tagClickHandler = (event) => {
     const clickedTag = event.target.textContent;
+    console.log(clickedTag);
     setClickedTags((prevTags) => [...new Set([...prevTags, clickedTag])]);
   };
 
